@@ -1,0 +1,32 @@
+[package]
+name = "toolkit"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.75"
+thiserror = "1.0.50"
+serde = "1.0.192"
+core = { path = "./core/core" }
+cui = { package = "ui_cui", path = "./ui/cui", optional = true }
+tui = { package = "ui_tui", path = "./ui/tui", optional = true }
+gui = { package = "ui_gui", path = "./ui/gui", optional = true }
+
+[features]
+default = []
+cui = ["dep:cui"]
+tui = ["dep:tui"]
+gui = ["dep:gui"]
+
+[workspace]
+members = [
+    "core/core",
+    "ui/cui",
+    "ui/tui",
+    "ui/gui",
+]
+
+[workspace.dependencies]
+anyhow = "1.0.75"
+thiserror = "1.0.50"
+serde = "1.0.192"
